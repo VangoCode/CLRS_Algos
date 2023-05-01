@@ -1,3 +1,5 @@
+#include "../DynamicArray/dynamic_table.h"
+
 /*
  * Return the index of the parent of the element in the heap.
  */
@@ -12,3 +14,8 @@ int left(int i);
  * Return the index of the right subchild of the element in the heap.
  */
 int right(int i);
+
+/*
+ * Perform max heapify onto integer array arr
+ */
+void max_heapify(DynamicTable *arr, int i);

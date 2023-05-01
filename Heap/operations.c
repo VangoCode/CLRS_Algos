@@ -20,3 +20,26 @@ int left(int i) {
 int right(int i) {
    return (i << 1) + 1; // left shift once, add one to get right child
 }
+
+/*
+ * Perform max heapify onto integer array arr
+ */
+void max_heapify(DynamicTable *arr, int i) {
+    int l = left(i);
+    int r = right(i);
+    int largest;
+    if (l <= arr->num_elements + 1 && arr->array[l] > arr->array[i]) {
+        largest = l;
+    } else {
+        largest = i;
+    }
+    if (r <= arr->num_elements + 1 && arr->array[r] > arr->array[largest]) {
+        largest = r;
+    }
+    if (largest != i) {
+        int tmp = arr->array[i];
+        arr->array[i] = arr->array[l];
+        arr->array[l] = tmp;
+        max_heapify(arr, largest);
+    }
+}
