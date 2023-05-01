@@ -20,16 +20,16 @@ void double_table_size(DynamicTable *table);
 void halve_table_size(DynamicTable *table);
 
 /*
- * Append to a dynamic table
+ * Append item to Dynamic Table table
  */
-void append_to_table(DynamicTable *table);
+void append_to_table(DynamicTable *table, int item);
 
 /*
- * Pop from a dynamic table
+ * Pop from Dynamic Table table
  */
 int pop_from_table(DynamicTable *table);
 
 /*
- * Print all the elements of a dynamic table in an array-like format
+ * Print all the elements of the dynamic table in an array-like format
  */
 void print_table(DynamicTable *table);

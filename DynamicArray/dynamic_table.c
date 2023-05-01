@@ -53,11 +53,11 @@ void halve_table_size(DynamicTable *table) {
 /*
  * Append to a dynamic table
  */
-void append_to_table(DynamicTable *table) {
+void append_to_table(DynamicTable *table, int item) {
     if (table->size == table->num_elements) {
         double_table_size(table);
     }
-    table->array[table->num_elements] = 1;
+    table->array[table->num_elements] = item;
     table->num_elements++;
 }
 

@@ -10,8 +10,14 @@ int main() {
 
     print_table(table);
     
-    append_to_table(table);
-    append_to_table(table);
+    append_to_table(table, 5);
+    append_to_table(table, 10);
+
+    print_table(table);
+
+    printf("Now, the table is of size %d\n", table->size);
+
+    append_to_table(table, 15);
 
     print_table(table);
 
