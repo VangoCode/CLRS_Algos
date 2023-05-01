@@ -24,3 +24,8 @@ void max_heapify(DynamicTable *arr, int i);
  * Turn regular dynamic table arr into a max heap
  */
 void build_max_heap(DynamicTable *arr);
+
+/*
+ * Sort an array using heapsort
+ */
+void heapsort(DynamicTable *arr);
