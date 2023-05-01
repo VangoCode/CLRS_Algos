@@ -9,10 +9,12 @@ int main() {
 
     append_to_table(heap, 1);
     append_to_table(heap, 5);
+    append_to_table(heap, 7);
+    append_to_table(heap, 1);
     
     print_table(heap);
     
-    max_heapify(heap, 0);
+    max_heapify(heap, 1);
 
     print_table(heap);
 

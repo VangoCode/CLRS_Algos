@@ -1,4 +1,5 @@
 #include "operations.h"
+#include <stdio.h>
 
 /*
  * Return the index of the parent of the element in the heap. Assumes you are 1-indexed
@@ -38,8 +39,8 @@ void max_heapify(DynamicTable *arr, int i) {
     }
     if (largest != i) {
         int tmp = arr->array[i];
-        arr->array[i] = arr->array[l];
-        arr->array[l] = tmp;
+        arr->array[i] = arr->array[largest];
+        arr->array[largest] = tmp;
         max_heapify(arr, largest);
     }
 }
