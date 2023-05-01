@@ -25,7 +25,7 @@ int right(int i) {
 /*
  * Perform max heapify onto integer array arr
  */
-void max_heapify(DynamicTable *arr, int i) {
+void max_heapify(DynamicTable *arr, int i) { 
     int l = left(i);
     int r = right(i);
     int largest;
@@ -42,5 +42,14 @@ void max_heapify(DynamicTable *arr, int i) {
         arr->array[i] = arr->array[largest];
         arr->array[largest] = tmp;
         max_heapify(arr, largest);
+    }
+}
+
+/*
+ * Turn regular dynamic table arr into a max heap
+ */
+void build_max_heap(DynamicTable *arr) {
+    for (int i = arr->num_elements / 2; i > 0; i--) {
+        max_heapify(arr, i);
     }
 }
