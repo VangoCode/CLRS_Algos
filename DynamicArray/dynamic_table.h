@@ -1,6 +1,7 @@
 typedef struct dynamic_table {
     int size;
-    void *array;
+    int num_elements;
+    int *array;
 } DynamicTable;
 
 /*
