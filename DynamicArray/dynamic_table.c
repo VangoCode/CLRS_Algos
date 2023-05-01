@@ -1,3 +1,4 @@
+#include <stdio.h>
 #include <stdlib.h>
 #include "dynamic_table.h"
 
@@ -53,12 +54,31 @@ void halve_table_size(DynamicTable *table) {
  * Append to a dynamic table
  */
 void append_to_table(DynamicTable *table) {
-
+    if (table->size == table->num_elements) {
+        double_table_size(table);
+    }
+    table->array[table->num_elements] = 1;
+    table->num_elements++;
 }
 
 /*
  * Pop from a dynamic table
  */
-void pop_from_table(DynamicTable *table) {
+int pop_from_table(DynamicTable *table) {
+    if (table->size == (table->num_elements << 1)) {
+        halve_table_size(table);
+    }
+    table->num_elements--;
+    return table->array[table->num_elements + 1];
+}
 
+/*
+ * Print all the elements of a dynamic table in an array-like format
+ */
+void print_table(DynamicTable *table) {
+    printf("[ ");
+    for (int i = 0; i < table->num_elements; i++) {
+        printf("%d ", table->array[i]);
+    }
+    printf("]\n");
 }

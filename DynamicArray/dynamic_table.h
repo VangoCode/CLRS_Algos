@@ -27,4 +27,9 @@ void append_to_table(DynamicTable *table);
 /*
  * Pop from a dynamic table
  */
-void pop_from_table(DynamicTable *table);
+int pop_from_table(DynamicTable *table);
+
+/*
+ * Print all the elements of a dynamic table in an array-like format
+ */
+void print_table(DynamicTable *table);
