@@ -18,5 +18,5 @@ int left(int i) {
  * Return the index of the right subchild of the element in the heap. Assumes you are 1-indexed
  */
 int right(int i) {
-   return (2 << i) + 1; // left shift once, add one to get right child
+   return (i << 1) + 1; // left shift once, add one to get right child
 }
