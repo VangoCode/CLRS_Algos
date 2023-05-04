@@ -1,5 +1,11 @@
 #include "../DynamicArray/dynamic_table.h"
 
+typedef struct heap {
+    void (*heapify)(DynamicTable *, int); // max or min heapify
+    void (*build_heap)(DynamicTable *);
+    DynamicTable *heap; // the heap associated with this heap
+} Heap;
+
 /*
  * Return the index of the parent of the element in the heap.
  */
