@@ -27,6 +27,11 @@ int right(int i);
 void max_heapify(DynamicTable *arr, int i);
 
 /*
+ * Perform min heapify onto integer array arr
+ */
+void min_heapify(DynamicTable *arr, int i);
+
+/*
  * Turn regular dynamic table arr into a max heap
  */
 void build_max_heap(DynamicTable *arr);

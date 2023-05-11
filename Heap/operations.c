@@ -46,6 +46,29 @@ void max_heapify(DynamicTable *arr, int i) {
 }
 
 /*
+ * Perform min heapify onto integer array arr
+ */
+void min_heapify(DynamicTable *arr, int i) {
+    int l = left(i);
+    int r = right(i);
+    int smallest;
+    if (l < arr->num_elements + 1 && arr->array[l] < arr->array[i]) {
+        smallest = l;
+    } else {
+        smallest = i;
+    }
+    if (r < arr->num_elements + 1 && arr->array[r] < arr->array[smallest]) {
+        smallest = r;
+    }
+    if (smallest != i) {
+        int tmp = arr->array[i];
+        arr->array[i] = arr->array[smallest];
+        arr->array[smallest] = tmp;
+        min_heapify(arr, smallest);
+    }
+}
+
+/*
  * Turn regular dynamic table arr into a max heap
  */
 void build_max_heap(DynamicTable *arr) {
