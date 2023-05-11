@@ -1,5 +1,6 @@
 #include "operations.h"
 #include <stdio.h>
+#include <stdlib.h>
 
 /*
  * Return the index of the parent of the element in the heap. Assumes you are 1-indexed
@@ -74,6 +75,15 @@ void min_heapify(DynamicTable *arr, int i) {
 **/
 
 /*
+ * Used to initialize an empty heap of max or min heapify
+ */
+void initialize_heap(Heap *heap, void (*heapify)(DynamicTable *, int)) {
+    heap->heap = malloc(sizeof(DynamicTable));
+    heap->heapify = heapify;
+    initialize_table(heap->heap);
+}
+
+/*
  * Generic, turn a Heap data type into a min or max-heap based on specified heapify function
  */
 void build_heap(Heap *heap) {
@@ -83,7 +93,7 @@ void build_heap(Heap *heap) {
 }
 
 /*
- * Sort an array using heapsort
+ * Generic. Sort an array using heapsort
  */
 void heapsort(Heap *heap) {
     build_heap(heap);

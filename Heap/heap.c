@@ -6,10 +6,8 @@
 int main() {
     // test for now, will refactor in next update
     Heap *heap = malloc(sizeof(heap));
-    heap->heap = malloc(sizeof(DynamicTable));
-    heap->heapify = min_heapify;
-    // initialize_heap?
-    initialize_table(heap->heap);
+    // macro for heaps was defined in initialize_heap !!!
+    initialize_heap(heap, MAX_HEAP);
 
     append_to_table(heap->heap, 5);
     append_to_table(heap->heap, 1);

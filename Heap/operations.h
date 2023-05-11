@@ -1,3 +1,6 @@
+#define MIN_HEAP min_heapify
+#define MAX_HEAP max_heapify
+
 #include "../DynamicArray/dynamic_table.h"
 
 typedef struct heap {
@@ -31,7 +34,14 @@ void max_heapify(DynamicTable *arr, int i);
 void min_heapify(DynamicTable *arr, int i);
 
 /*
- * Sort an array using heapsort
+ * Generic. Used to initialize a heap.
+ * "MAX_HEAP" is used to initialize a max-heap
+ * "MIN_HEAP" is used to initialize a min-heap
+ */
+void initialize_heap(Heap *heap, void (*heapify)(DynamicTable *, int));
+
+/*
+ * Generic. Sort an array using heapsort
  */
 void heapsort(Heap *heap);
 
