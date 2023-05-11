@@ -34,4 +34,10 @@ void build_max_heap(DynamicTable *arr);
 /*
  * Sort an array using heapsort
  */
-void heapsort(DynamicTable *arr);
+void heapsort(Heap *heap);
+
+
+/*
+ * Generic, turn a Heap data type into a min or max-heap based on specified heapify function
+ */
+void build_heap(Heap *heap);

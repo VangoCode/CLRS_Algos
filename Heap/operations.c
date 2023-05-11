@@ -54,25 +54,39 @@ void build_max_heap(DynamicTable *arr) {
     }
 }
 
+
+/**
+ GENERIC HEAP FUNCTIONS
+**/
+
+/*
+ * Generic, turn a Heap data type into a min or max-heap based on specified heapify function
+ */
+void build_heap(Heap *heap) {
+    for (int i = heap->heap->num_elements / 2; i > 0; i--) {
+        heap->heapify(heap->heap, i);
+    }
+}
+
 /*
  * Sort an array using heapsort
  */
-void heapsort(DynamicTable *arr) {
-    build_max_heap(arr);
-    int temp_size = arr->num_elements;
-    for (int i = arr->num_elements; i > 1; i--) {
-        int temp = arr->array[1];
-        arr->array[1] = arr->array[i];
-        arr->array[i] = temp;
+void heapsort(Heap *heap) {
+    build_heap(heap);
+    int temp_size = heap->heap->num_elements;
+    for (int i = heap->heap->num_elements; i > 1; i--) {
+        int temp = heap->heap->array[1];
+        heap->heap->array[1] = heap->heap->array[i];
+        heap->heap->array[i] = temp;
         // int temp2 = arr->num_elements;
         // arr->num_elements = temp_size;
         // print_table(arr);
         // arr->num_elements = temp2;
-        arr->num_elements--;
-        max_heapify(arr, 1);
-        int temp2 = arr->num_elements;
-        arr->num_elements = temp_size;
-        arr->num_elements = temp2;
+        heap->heap->num_elements--;
+        heap->heapify(heap->heap, 1);
+        int temp2 = heap->heap->num_elements;
+        heap->heap->num_elements = temp_size;
+        heap->heap->num_elements = temp2;
     }
-    arr->num_elements = temp_size;
+    heap->heap->num_elements = temp_size;
 }
