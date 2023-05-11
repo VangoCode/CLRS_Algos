@@ -19,8 +19,6 @@ int main() {
 
     print_table(heap->heap);
     
-    // build_max_heap(heap->heap);
-    // test:
     build_heap(heap);
 
     printf("Here it is after:\n");

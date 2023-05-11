@@ -102,10 +102,6 @@ void heapsort(Heap *heap) {
         int temp = heap->heap->array[1];
         heap->heap->array[1] = heap->heap->array[i];
         heap->heap->array[i] = temp;
-        // int temp2 = arr->num_elements;
-        // arr->num_elements = temp_size;
-        // print_table(arr);
-        // arr->num_elements = temp2;
         heap->heap->num_elements--;
         heap->heapify(heap->heap, 1);
         int temp2 = heap->heap->num_elements;
