@@ -8,7 +8,6 @@ int main() {
     Heap *heap = malloc(sizeof(heap));
     heap->heap = malloc(sizeof(DynamicTable));
     heap->heapify = min_heapify;
-    heap->build_heap = build_max_heap;
     // initialize_heap?
     initialize_table(heap->heap);
 

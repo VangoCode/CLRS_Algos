@@ -2,7 +2,6 @@
 
 typedef struct heap {
     void (*heapify)(DynamicTable *, int); // max or min heapify
-    void (*build_heap)(DynamicTable *);
     DynamicTable *heap; // the heap associated with this heap
 } Heap;
 
@@ -30,11 +29,6 @@ void max_heapify(DynamicTable *arr, int i);
  * Perform min heapify onto integer array arr
  */
 void min_heapify(DynamicTable *arr, int i);
-
-/*
- * Turn regular dynamic table arr into a max heap
- */
-void build_max_heap(DynamicTable *arr);
 
 /*
  * Sort an array using heapsort

@@ -68,15 +68,6 @@ void min_heapify(DynamicTable *arr, int i) {
     }
 }
 
-/*
- * Turn regular dynamic table arr into a max heap
- */
-void build_max_heap(DynamicTable *arr) {
-    for (int i = arr->num_elements / 2; i > 0; i--) {
-        max_heapify(arr, i);
-    }
-}
-
 
 /**
  GENERIC HEAP FUNCTIONS
