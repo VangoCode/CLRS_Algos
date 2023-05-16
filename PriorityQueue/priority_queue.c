@@ -11,4 +11,11 @@ int main() {
     printf("%d\n", priority_queue_peek(priority_queue));
     priority_queue_insert(priority_queue, 3);
     printf("%d\n", priority_queue_peek(priority_queue));
+    priority_queue_insert(priority_queue, 7);
+    printf("%d\n", priority_queue_peek(priority_queue));
+    priority_queue_insert(priority_queue, 2);
+    printf("%d\n", priority_queue_peek(priority_queue));
+    priority_queue_insert(priority_queue, 1);
+    printf("%d\n", priority_queue_peek(priority_queue));
+    print_table(priority_queue->heap->table);
 }

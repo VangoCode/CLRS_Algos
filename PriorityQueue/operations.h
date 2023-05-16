@@ -1,9 +1,10 @@
 #include "../Heap/operations.h"
-#define MIN_PRIORITY_QUEUE min_heapify
-#define MAX_PRIORITY_QUEUE max_heapify
+#define MIN_PRIORITY_QUEUE min_heapify, "MIN"
+#define MAX_PRIORITY_QUEUE max_heapify, "MAX"
 
 typedef struct priority_queue {
     Heap *heap;
+    char *type;
 } PriorityQueue;
 
 
@@ -30,4 +31,4 @@ void priority_queue_update_key(PriorityQueue *priority_queue, int key);
 /*
  * Initialize an empty priority queue
  */
-void initialize_priority_queue(PriorityQueue *priority_queue, void (*heapify)(DynamicTable *, int));
+void initialize_priority_queue(PriorityQueue *priority_queue, void (*heapify)(DynamicTable *, int), char *type);

@@ -78,17 +78,17 @@ void min_heapify(DynamicTable *arr, int i) {
  * Used to initialize an empty heap of max or min heapify
  */
 void initialize_heap(Heap *heap, void (*heapify)(DynamicTable *, int)) {
-    heap->heap = malloc(sizeof(DynamicTable));
+    heap->table = malloc(sizeof(DynamicTable));
     heap->heapify = heapify;
-    initialize_table(heap->heap);
+    initialize_table(heap->table);
 }
 
 /*
  * Generic, turn a Heap data type into a min or max-heap based on specified heapify function
  */
 void build_heap(Heap *heap) {
-    for (int i = heap->heap->num_elements / 2; i > 0; i--) {
-        heap->heapify(heap->heap, i);
+    for (int i = heap->table->num_elements / 2; i > 0; i--) {
+        heap->heapify(heap->table, i);
     }
 }
 
@@ -97,16 +97,16 @@ void build_heap(Heap *heap) {
  */
 void heapsort(Heap *heap) {
     build_heap(heap);
-    int temp_size = heap->heap->num_elements;
-    for (int i = heap->heap->num_elements; i > 1; i--) {
-        int temp = heap->heap->array[1];
-        heap->heap->array[1] = heap->heap->array[i];
-        heap->heap->array[i] = temp;
-        heap->heap->num_elements--;
-        heap->heapify(heap->heap, 1);
-        int temp2 = heap->heap->num_elements;
-        heap->heap->num_elements = temp_size;
-        heap->heap->num_elements = temp2;
+    int temp_size = heap->table->num_elements;
+    for (int i = heap->table->num_elements; i > 1; i--) {
+        int temp = heap->table->array[1];
+        heap->table->array[1] = heap->table->array[i];
+        heap->table->array[i] = temp;
+        heap->table->num_elements--;
+        heap->heapify(heap->table, 1);
+        int temp2 = heap->table->num_elements;
+        heap->table->num_elements = temp_size;
+        heap->table->num_elements = temp2;
     }
-    heap->heap->num_elements = temp_size;
+    heap->table->num_elements = temp_size;
 }

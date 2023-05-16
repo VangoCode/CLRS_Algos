@@ -5,7 +5,7 @@
 
 typedef struct heap {
     void (*heapify)(DynamicTable *, int); // max or min heapify
-    DynamicTable *heap; // the heap associated with this heap
+    DynamicTable *table; // the heap associated with this heap
 } Heap;
 
 /*
