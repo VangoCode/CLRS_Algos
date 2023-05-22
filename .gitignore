@@ -37,6 +37,7 @@
 *.hex
 dynamic_array
 heap
+priority_queue
 
 # Debug files
 *.dSYM/
