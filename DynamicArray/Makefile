@@ -8,3 +8,6 @@ dynamic_array.o : dynamic_array.c dynamic_table.h
 
 dynamic_table.o : dynamic_table.c dynamic_table.h
 	gcc $(GCC_FLAGS) -c dynamic_table.c dynamic_table.h
+
+clean:
+	rm dynamic_array *.o *.gch

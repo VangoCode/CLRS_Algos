@@ -8,3 +8,6 @@ priority_queue.o : priority_queue.c operations.h
 
 operations.o : operations.c operations.h
 	gcc $(GCC_FLAGS) -c operations.c operations.h
+
+clean:
+	rm priority_queue *.o *.gch
