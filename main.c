@@ -18,13 +18,6 @@ int main(int argc, char **argv)
         exit(1);
     }
 
-    // SDL_Surface *window_surface = SDL_GetWindowSurface(window);
-
-    // if (window_surface == NULL) {
-    //     perror("getting surface from window failed\n");
-    //     exit(1);
-    // }
-
     SDL_Renderer *renderer = SDL_CreateRenderer(window, -1, SDL_RENDERER_ACCELERATED);
 
 
@@ -55,7 +48,6 @@ int main(int argc, char **argv)
 
     // SDL_Delay(5000);
 
-    // SDL_DestroyWindow(window);
     SDL_DestroyRenderer(renderer);
     renderer = NULL;
 
