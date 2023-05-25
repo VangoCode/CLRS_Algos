@@ -18,12 +18,15 @@ int main(int argc, char **argv)
         exit(1);
     }
 
-    SDL_Surface *window_surface = SDL_GetWindowSurface(window);
+    // SDL_Surface *window_surface = SDL_GetWindowSurface(window);
 
-    if (window_surface == NULL) {
-        perror("getting surface from window failed\n");
-        exit(1);
-    }
+    // if (window_surface == NULL) {
+    //     perror("getting surface from window failed\n");
+    //     exit(1);
+    // }
+
+    SDL_Renderer *renderer = SDL_CreateRenderer(window, -1, SDL_RENDERER_ACCELERATED);
+
 
     // value to check if the window has been closed
     int is_running = 1;
@@ -38,12 +41,24 @@ int main(int argc, char **argv)
 
             SDL_UpdateWindowSurface(window);
         }
+
+        // test loop
+        SDL_RenderClear(renderer);
+        SDL_SetRenderDrawColor(renderer, 255, 255, 255, 255);
+        SDL_Rect rect = {100, 100, 100, 100};
+        SDL_RenderDrawRect(renderer, &rect);
+        SDL_RenderPresent(renderer);
+        SDL_SetRenderDrawColor(renderer, 0, 0, 0, 255);
+
     }
 
 
     // SDL_Delay(5000);
 
-    SDL_DestroyWindow(window);
+    // SDL_DestroyWindow(window);
+    SDL_DestroyRenderer(renderer);
+    renderer = NULL;
+
     SDL_Quit();
  
     return 0;
