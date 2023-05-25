@@ -15,3 +15,4 @@ clean:
 	+$(MAKE) -C DynamicArray clean
 	+$(MAKE) -C Heap clean
 	+$(MAKE) -C PriorityQueue clean
+	rm main *.o

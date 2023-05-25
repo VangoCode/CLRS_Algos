@@ -38,6 +38,7 @@
 dynamic_array
 heap
 priority_queue
+main
 
 # Debug files
 *.dSYM/
