@@ -1,4 +1,5 @@
 #include <SDL2/SDL.h>
+#include "./DynamicArray/dynamic_table.c"
  
 int main(int argc, char **argv)
 {
@@ -25,6 +26,15 @@ int main(int argc, char **argv)
     int is_running = 1;
     SDL_Event event;
 
+    // DYNAMIC TABLE TEST
+    DynamicTable *dynamic_table;
+    dynamic_table = malloc(sizeof(DynamicTable));
+    initialize_table(dynamic_table);
+    append_to_table(dynamic_table, 1);
+    append_to_table(dynamic_table, 2);
+    append_to_table(dynamic_table, 3);
+    print_table(dynamic_table);
+
     while (is_running == 1) {
         while (SDL_PollEvent(&event) != 0) {
             // there is something in the event queue
@@ -38,8 +48,10 @@ int main(int argc, char **argv)
         // test loop
         SDL_RenderClear(renderer);
         SDL_SetRenderDrawColor(renderer, 255, 255, 255, 255);
-        SDL_Rect rect = {100, 100, 100, 100};
-        SDL_RenderDrawRect(renderer, &rect);
+        for (int i = 1; i < dynamic_table->num_elements + 1; i++) {
+            SDL_Rect rect = {(i - 1) * 100, 100, 100, 100};
+            SDL_RenderDrawRect(renderer, &rect);
+        }
         SDL_RenderPresent(renderer);
         SDL_SetRenderDrawColor(renderer, 0, 0, 0, 255);
 
